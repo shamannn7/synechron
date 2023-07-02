@@ -2,6 +2,7 @@ package com.wordcounter.lib
 
 import scala.collection.concurrent.TrieMap
 
+
 object WordCounter {
   val dictionary: TrieMap[String, Int] = TrieMap[String, Int]()
   val translator = new Translator()
