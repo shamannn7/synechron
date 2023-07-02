@@ -9,16 +9,15 @@ object WordCounter {
 
   def addWords(words: List[String]): Unit ={
     for(word <- words){
-      //      if()  TODO translate
-      // word = translator.translate(word)
-      val countMaybe: Option[Int] = dictionary.get(word)
-      if(word.forall(_.isLetter))
+      val translated = translator.translate(word)
+      val countMaybe: Option[Int] = dictionary.get(translated)
+      if(translated.forall(_.isLetter))
         if (countMaybe.isDefined){
            val count = countMaybe.get + 1
-           dictionary.put(word, count)
+           dictionary.put(translated, count)
         }
         else{
-            dictionary.put(word, 1)
+            dictionary.put(translated, 1)
         }
     }
   }
